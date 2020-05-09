@@ -36,32 +36,68 @@ var movies = [
     title: "Color Out of Space",
     director: "Richard Stanley",
     type: "sci-fi",
-    haveWatched: true,
+    haveWatched: true
   },
   {
     title: "A Twelve-Year Night",
     director: "Álvaro Brechner",
     type: "horror",
-    haveWatched: false,
+    haveWatched: false
   },
   {
     title: "The Whistlers",
     director: "Corneliu Porumboiu",
     type: "comedy",
-    haveWatched: true,
+    haveWatched: true
   },
   {
     title: "The Invisible Man",
     director: "Leigh Whannell",
     type: "horror",
-    haveWatched: false,
-  },
+    haveWatched: false
+  }
 ];
 
 // create showMovies function
-
+function showMovies() {
+  var allMoviesDiv = document.querySelector("#all-movies");
+  allMoviesDiv.innerHTML = "";
+  for (var i = 0; i < movies.length; i++) {
+    var movie = movies[i];
+    var pElement = document.createElement("p");
+    pElement.innerText = movie.title + " by " + movie.director;
+    allMoviesDiv.appendChild(pElement);
+  }
+  var moviesNumber = document.querySelector("#movies-number");
+  moviesNumber.innerHTML = movies.length;
+}
 
 // create a new movie object for your favorite movie
+var movie1 = {
+  title: "Inception",
+  director: "Christopher Nolan",
+  type: "thriller",
+  haveWatched: true
+};
+var movie2 = {
+  title: "The Dark Knight",
+  director: "Christopher Nolan",
+  type: "thriller",
+  haveWatched: true
+};
 
+// Task 2B: Create addMovie function
+function addMovie(newMovie) {
+  movies.push(newMovie);
+}
 
-// create addMovies function
+// Task 2C: Call showMovies, then addMovies & showMovies after 1 second, and then addMovies & showMovies 1 second after that.
+showMovies();
+setTimeout(function() {
+  addMovie(movie1);
+  showMovies();
+}, 1000);
+setTimeout(function() {
+  addMovie(movie2);
+  showMovies();
+}, 2000);
