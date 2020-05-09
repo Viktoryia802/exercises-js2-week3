@@ -10,3 +10,9 @@ When you get the response from the server, print the current temperature in an <
 
 ================
 */
+// You can construct the URL to fetch from like this. The lat and lon values will come from the input value.
+var lat = 35;
+var lon = 160;
+var url = "https://fcc-weather-api.glitch.me/api/current";
+url += "?lat=" + lat;
+url += "&lon=" + lon;
